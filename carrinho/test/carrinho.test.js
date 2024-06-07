@@ -37,4 +37,34 @@ describe('Testes do carrinho', () => {
 
     expect(englobaErroCarrinho).toThrowError('Carrinho de compras vazio');
   });
+
+  it('Deve adicionar o frete', () => {
+    const carrinho = new Carrinho();
+    carrinho.adicionaFrete(15);
+    expect(carrinho.frete).toBe(15);
+  });
+
+  it('Deve calcular o total do carrinho', () => {
+    const item = new Item('Banana', 2, 5);
+    const carrinho = new Carrinho();
+
+    carrinho.adiciona(item);
+    carrinho.adicionaFrete(15);
+    const total = carrinho.calculaTotal();
+
+    expect(total).toBe(25);
+  });
+
+  it('Deve finalizar as compras', () => {
+    const item = new Item('Banana', 2, 5);
+    const carrinho = new Carrinho();
+
+    carrinho.adiciona(item);
+    carrinho.adicionaFrete(15);
+    const compra = carrinho.finalizaCompra();
+
+    expect(compra.frete).toBe(15);
+    expect(compra.subtotal).toBe(10);
+    expect(compra.total).toBe(25);
+  });
 });
