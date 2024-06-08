@@ -39,6 +39,22 @@ describe('POST em /editoras', () => {
 
     idEditora = resposta.body.content.id;
   });
+
+  it('Deve não adicionar nada ao passar o body vazio.', async () => {
+    await request(app)
+      .post('/editoras')
+      .send({})
+      .expect(400);
+  });
+});
+
+describe('PUT em /editoras/{id}', () => {
+  it('Alterar o recurso adicionado', async () => {
+    await request(app)
+      .put(`/editoras/${idEditora}`)
+      .send({ nome: 'Casa do código' })
+      .expect(204);
+  });
 });
 
 describe('DELETE em /editoras/{id}', () => {
@@ -48,3 +64,4 @@ describe('DELETE em /editoras/{id}', () => {
       .expect(200);
   })
 });
+
