@@ -49,16 +49,20 @@ describe('POST em /editoras', () => {
 });
 
 describe('PUT em /editoras/{id}', () => {
-  it('Alterar o recurso adicionado', async () => {
+  it.each([
+    { nome: 'Casa do Código' },
+    { idade: 'Aracaju' },
+    { email: 'cdc@cdc.com' }
+  ])('Deve alterar o recurso adicionado', async (param) => {
     await request(app)
       .put(`/editoras/${idEditora}`)
-      .send({ nome: 'Casa do código' })
+      .send(param)
       .expect(204);
   });
 });
 
 describe('DELETE em /editoras/{id}', () => {
-  it('Deletar o recurso adicionado', async () => {
+  it('Deve deletar o recurso adicionado', async () => {
     await request(app)
       .delete(`/editoras/${idEditora}`)
       .expect(200);
