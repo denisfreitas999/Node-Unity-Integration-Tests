@@ -50,10 +50,10 @@ describe('POST em /editoras', () => {
 
 describe('PUT em /editoras/{id}', () => {
   it.each([
-    { nome: 'Casa do Código' },
-    { idade: 'Aracaju' },
-    { email: 'cdc@cdc.com' }
-  ])('Deve alterar o recurso adicionado', async (param) => {
+    ['nome', { nome: 'Casa do Código' }],
+    ['cidade', { cidade: 'Aracaju' }],
+    ['email', { email: 'cdc@cdc.com' }]
+  ])('Deve alterar o campo %s', async (chave, param) => {
     await request(app)
       .put(`/editoras/${idEditora}`)
       .send(param)
