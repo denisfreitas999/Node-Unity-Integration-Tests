@@ -7,6 +7,12 @@
 4. [Testando uma API](#4-testando-uma-api)
 5. [Testando Rotas](#5-testando-rotas)
 
+## Tecnologias Envolvidas
+<div style="display: inline_block">
+  <img align="center" alt="NodeJS" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"/>
+   <img align="center" alt="JEST" src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white"/>
+</div>
+
 ## 1. Conceituando Testes
 Na primeira etapa do curso, foquei em compreender a importância dos testes e os diferentes tipos que podemos implementar:
 - **Importância dos Testes**: Entendi que os testes são essenciais para aumentar a confiabilidade e a qualidade do código.
